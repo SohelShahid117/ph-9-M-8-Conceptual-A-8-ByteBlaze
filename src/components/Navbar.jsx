@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [theme, setTheme] = useState("light");
@@ -27,17 +27,20 @@ const Navbar = () => {
   return (
     <div className="navbar bg-base-100 shadow-lg px-4 fixed z-10">
       <div className="flex-1">
-        <a className="btn btn-ghost text-2xl gap-0 text-secondary normal-case">
+        <Link
+          to="/"
+          className="btn btn-ghost text-2xl gap-0 text-secondary normal-case"
+        >
           Byte<span className="text-primary">Blaze</span>
-        </a>
+        </Link>
       </div>
       <div className="flex-none">
-        <ul className="menu menu-horizontal px-1">
+        <ul className="menu menu-horizontal px-1 flex gap-5">
           {/* <li className="font-bold">
             <a>Home</a>
           </li> */}
 
-          <Link to="/" className="font-bold">
+          {/* <Link to="/" className="font-bold">
             Home
           </Link>
           <Link to="/blogs" className="font-bold text-primary">
@@ -45,7 +48,32 @@ const Navbar = () => {
           </Link>
           <Link to="/bookmarks" className="font-bold">
             Bookmarks
-          </Link>
+          </Link> */}
+
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive ? "text-primary font-bold" : "font-bold"
+            }
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="/blogs"
+            className={({ isActive }) =>
+              isActive ? "text-primary font-bold" : "font-bold"
+            }
+          >
+            Blogs
+          </NavLink>
+          <NavLink
+            to="/bookmarks"
+            className={({ isActive }) =>
+              isActive ? "text-primary font-bold" : "font-bold"
+            }
+          >
+            Bookmarks
+          </NavLink>
 
           {/* <li className="font-bold text-primary">
             <a>Blogs</a>

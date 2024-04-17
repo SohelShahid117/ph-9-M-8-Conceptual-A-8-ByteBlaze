@@ -1,4 +1,6 @@
 import Home from "./pages/Home";
+import Blogs from "./pages/Blogs";
+import Bookmarks from "./pages/Bookmarks";
 
 function App() {
   return (
@@ -7,6 +9,8 @@ function App() {
       <button className="btn btn-primary">Primary</button> */}
 
       <Home></Home>
+      <Blogs></Blogs>
+      <Bookmarks></Bookmarks>
     </>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import { useLoaderData } from "react-router-dom";
+import BlogCart from "../components/BlogCart";
 
 const Blogs = () => {
   // const [blogs, setBlogs] = useState([]);
@@ -23,7 +24,7 @@ const Blogs = () => {
     //   <h1>This is a blog pages</h1>
     // </div>
     //API------------https://developers.forem.com/api/v1#tag/articles/operation/getArticles
-    <section className="dark:bg-gray-100 dark:text-gray-800">
+    <section className="dark:bg-gray-100 py-5 dark:text-gray-800">
       <div className="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
         <a
           rel="noopener noreferrer"
@@ -40,13 +41,22 @@ const Blogs = () => {
               {blogs[0].title}
             </h3>
             <span className="text-xs dark:text-gray-600">
-              February 19, 2021
+              {new Date(blogs[0].published_at).toLocaleDateString()}
             </span>
             <p>{blogs[0].description}</p>
           </div>
         </a>
         <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <a
+          {blogs.map((blg) => (
+            <BlogCart key={blg.id} blog={blg}></BlogCart>
+          ))}
+          {/* <BlogCart></BlogCart>
+          <BlogCart></BlogCart>
+          <BlogCart></BlogCart>
+          <BlogCart></BlogCart>
+          <BlogCart></BlogCart>
+          <BlogCart></BlogCart> */}
+          {/* <a
             rel="noopener noreferrer"
             href="#"
             className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-50"
@@ -54,7 +64,7 @@ const Blogs = () => {
             <img
               role="presentation"
               className="object-cover w-full rounded h-44 dark:bg-gray-500"
-              src="https://source.unsplash.com/random/480x360?1"
+              // src="https://source.unsplash.com/random/480x360?1"
             />
             <div className="p-6 space-y-2">
               <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">
@@ -195,15 +205,7 @@ const Blogs = () => {
                 vocent delicata indoctum pri.
               </p>
             </div>
-          </a>
-        </div>
-        <div className="flex justify-center">
-          <button
-            type="button"
-            className="px-6 py-3 text-sm rounded-md hover:underline dark:bg-gray-50 dark:text-gray-600"
-          >
-            Load more posts...
-          </button>
+          </a> */}
         </div>
       </div>
     </section>

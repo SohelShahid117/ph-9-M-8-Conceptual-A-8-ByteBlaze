@@ -1,7 +1,13 @@
 import React from "react";
+import { useLoaderData } from "react-router-dom";
 
 const SingleBlog = () => {
-  return <div></div>;
+  const blggg = useLoaderData();
+  return (
+    <div>
+      <h1>Single blog data</h1>
+    </div>
+  );
 };
 
 export default SingleBlog;

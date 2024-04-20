@@ -7,7 +7,7 @@ const BlogCart = ({ blog }) => {
   const { published_timestamp, title, description, cover_image, id } = blog;
   return (
     <Link
-      to={"/blogs/${id}"}
+      to={`/singleBlog/${id}`}
       className="max-w-sm mx-auto group transition border-2 border-primary hover:border-secondary  hover:scale-105 hover:no-underline focus:no-underline dark:bg-gray-50"
     >
       <img
